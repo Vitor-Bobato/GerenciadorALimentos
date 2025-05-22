@@ -59,7 +59,7 @@
                                     @if($alimento->validade)
                                         @php
                                             $validade = \Carbon\Carbon::parse($alimento->validade);
-                                            $diff = $validade->diffInDays(\Carbon\Carbon::now(), false);
+                                            $diff = (int)$validade->diffInDays(\Carbon\Carbon::now(), false);
                                         @endphp
                                         <span class="{{ $diff <= 7 ? 'text-danger fw-bold' : '' }}">
                                             {{ $validade->format('d/m/Y') }}

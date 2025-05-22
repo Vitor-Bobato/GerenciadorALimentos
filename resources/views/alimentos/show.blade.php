@@ -83,7 +83,7 @@
                                             <h5 class="mb-1 text-muted">Data de Validade</h5>
                                             @php
                                                 $validade = \Carbon\Carbon::parse($alimento->validade);
-                                                $diff = $validade->diffInDays(\Carbon\Carbon::now(), false);
+                                                $diff = (int)$validade->diffInDays(\Carbon\Carbon::now(), false);
                                             @endphp
                                             <p class="mb-0 fs-4 fw-bold {{ $diff <= 7 ? 'text-danger' : '' }}">
                                                 {{ $validade->format('d/m/Y') }}
